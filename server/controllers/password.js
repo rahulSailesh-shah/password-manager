@@ -20,6 +20,8 @@ exports.getDecryptedMasterPassword = asyncHandaler(async (req, res, next) => {
   masterPassword = masterPassword[0];
   const decryptedMasterPassword = masterPassword.decryptMasterPassword();
 
+  console.log(decryptedMasterPassword);
+
   if (decryptedMasterPassword !== password) {
     return next(new ErrorResponse("Invalid Password", 400));
   }
